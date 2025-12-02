@@ -186,12 +186,12 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # Train the model 
-dir_train = "C:/Users/zhouq/Desktop/Machine learning/train/" # replace accordingly
+dir_train = "./train-1/train/"
 filepaths, labels = prepare_data(dir_train)
 train(model, criterion, optimizer, filepaths, labels)
 
 # Test the model
-dir_test = "C:/Users/zhouq/Desktop/Machine learning/test/" 
+dir_test = "./test/" 
 filepaths, labels = prepare_data(dir_test)
 test(model, filepaths, labels)
 
