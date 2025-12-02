@@ -35,7 +35,7 @@ def prepare_data(target_dir):
 
 
 def load_images(filepaths):
-  to_tensor = transforms.Compose([transforms.Resize((500,500)),transforms.ToTensor()])
+  to_tensor = transforms.Compose([transforms.Resize((64,64)),transforms.ToTensor()])
   tensor = None
 
   for item in filepaths:
@@ -97,7 +97,7 @@ class SimpleCNN(nn.Module):
     x = self.pool(x)
 
     # Flatten the feature maps 
-    x = x.view(-1, 64 * 125 * 125)
+    x = x.view(x.size(0), -1)
 
     # Fully connected layers
     x = self.fc1(x)
